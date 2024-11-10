@@ -26,6 +26,8 @@ SEARCH_ALGORITHMS = ['Breadth-First', 'Depth-First', 'Uniform-Cost', 'Greedy', '
 # Initialize pygame
 pygame.init()
 screen = pygame.display.set_mode((WIDTH, HEIGHT))
+clock = pygame.time.Clock()  # Initialize clock for FPS control
+FPS = 24  # Set desired frames per second
 pygame.display.set_caption("Search Snake Game")
 
 font = pygame.font.Font(None, 36)
@@ -233,7 +235,7 @@ def draw_buttons():
 # Main loop
 running = True
 search_generator = None  # Initialize generator for search steps
-place_obstacles()
+# place_obstacles()
 render_grid()
 path = []; visited_cells = []
 
@@ -274,5 +276,7 @@ while running:
             path, visited_cells = next(search_generator)
         except StopIteration:
             search_generator = None  # Stop when done
+
+    clock.tick(FPS)  
 
 pygame.quit()
