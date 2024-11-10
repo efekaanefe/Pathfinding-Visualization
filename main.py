@@ -18,7 +18,7 @@ GREEN = (0, 255, 0)
 YELLOW = (255, 255, 0)
 ORANGE = (255, 165, 0)
 PURPLE = (128, 0, 128)
-LIGHT_GRAY = (211, 211, 211)
+LIGHT_GRAY = (200,200,200)
 
 # Different search algorithms
 SEARCH_ALGORITHMS = ['Breadth-First', 'Depth-First', 'Uniform-Cost', 'Greedy', 'A*']
