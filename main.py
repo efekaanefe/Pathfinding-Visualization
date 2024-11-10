@@ -40,7 +40,9 @@ algorithm = SEARCH_ALGORITHMS[0]
 
 # Create obstacles
 def place_obstacles(nObjects=25):
-    obstacles = [(random.choice([RED, BLUE, GREEN])) for _ in range(9)]
+    # obstacles = [(random.choice([RED, BLUE, GREEN])) for _ in range(9)]
+    obstacles = [BLACK for _ in range(9)]
+
     for _ in range(nObjects):
         x, y = random.randint(0, GRID_WIDTH - 1), random.randint(0, GRID_HEIGHT - 1)
         while grid[y][x]:  # Avoid placing on the same spot
@@ -235,7 +237,7 @@ def draw_buttons():
 # Main loop
 running = True
 search_generator = None  # Initialize generator for search steps
-# place_obstacles()
+place_obstacles()
 render_grid()
 path = []; visited_cells = []
 
