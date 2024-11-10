@@ -218,7 +218,7 @@ def draw_buttons():
 
 # Main loop
 running = True
-place_obstacles()
+# place_obstacles()
 render_grid()
 
 path = []; visited_cells = []
