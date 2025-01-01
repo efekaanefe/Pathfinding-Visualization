@@ -7,7 +7,7 @@ WIDTH, HEIGHT = 800, 700
 GRID_WIDTH, GRID_HEIGHT = 15, 10
 CELL_SIZE = WIDTH // GRID_WIDTH
 BUTTONS_START_MARGIN = 160
-maxnSteps = 2000  # Maximum allowed steps
+maxnSteps = 25   # Maximum allowed steps
 FPS = 10  # Frames per second for animation
 
 # Colors and points range
@@ -65,7 +65,7 @@ def a_star_max_points(start, target, max_steps):
     pq.put((0, start, [start], 0, 0))  # (priority, current cell, path, steps taken, score)
     visited = set()
     best_path, best_score = [], float('-inf')
-    
+
     while not pq.empty():
         _, current, path, steps, score = pq.get()
         
@@ -81,7 +81,10 @@ def a_star_max_points(start, target, max_steps):
         for neighbor in get_neighbors(current):
             y, x = neighbor
             obj = grid[y][x]
-            points = obj['points'] if obj else 0  # Get points of the object in the cell
+            points = obj['points'] if obj else -5  # Get points of the object in the cell
+            
+            points = 200 if neighbor == target else points
+
             new_path = path + [neighbor]
             new_score = score + points
             
